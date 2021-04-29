@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SelectionMenu : MonoBehaviour
 {
     private string majorChosen;
+    [SerializeField] public wwwFormGameData wwwForm;
 
 
     public void GameSelector(string sceneName)
@@ -23,6 +24,11 @@ public class SelectionMenu : MonoBehaviour
 
         GameSettings.Image = CharacterSelector.GetSprite();
 
+        // Set name 
+        GameObject playerName = GameObject.Find("Player Name");
+        GameObject inputText = GameObject.Find("Text");
+        GameSettings.Name = inputText.GetComponent<Text>().text;
+        StartCoroutine(wwwForm.uploadData());
 
         // This block decide what the context of the game is going to be
 
@@ -31,9 +37,9 @@ public class SelectionMenu : MonoBehaviour
 
         majorChosen = MajorSelector.GetMajor();
 
-        if (majorChosen == "Ingenieria Civil")
+        if (majorChosen == "Ingeniería Electrónica")
         {
-            GameSelector("DialogueSystem");
+            GameSelector("Eleccion_1");
             //GameSelector(majorChosen);
         }
     }

@@ -1,28 +1,26 @@
-﻿/*
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 
-Set a time
+//Set a time
 
 {
    [SerializeField] float limit;
     //( cuanto se tarda en llamar la 1a vez , después llamar a la funcion cada segundo )
 
-    //Variable with the type of another script
-   [SerializeField] WireConnection gameCompleted;
-
     [SerializeField] Text textTime;
+    [SerializeField] Button nextLevelButton;
     // Start is called before the first frame update
     void Start()
     {
        InvokeRepeating("Countdown", 1, 1);
         //Get a reference to an instance of a class
-        //Set the initial text
+        //Set the initial time
        textTime.text = "Time: " + limit;
     }
 
@@ -34,12 +32,11 @@ Set a time
           print ("Game Over");
           //Stop calling Countdown() method, detiene el contador
           CancelInvoke();
-          //StopDrop => stop throwing balls, está en el script de dropballs
-          //dropper.StopDrop();
-          lightOn.SetActive(true);
+          nextLevelButton.gameObject.GetComponent <ChangeScene> ().nextSceneName="Final 2"; //en caso de perder
+          nextLevelButton.gameObject.SetActive(true);
         }
     }
 }
-*/
+
 
 

@@ -6,19 +6,17 @@ using UnityEngine.UI;
 public class GameCompleted : MonoBehaviour
 {
 
-
     public int valueToWin;
     private int activeLights = 0;
     public Button DialogueTrigger;
     public Button nextLevelButton;
     public Button startGameDialog;
+    public string winLevel;
 
     void Start() 
     {
         startGameDialog.GetComponent<Button>().onClick.Invoke();
     }
-
-
 
 
     public void TriggerDialogueBox()
@@ -27,7 +25,6 @@ public class GameCompleted : MonoBehaviour
         if (activeLights == valueToWin*2)
         {
             DialogueTrigger.GetComponent<Button>().onClick.Invoke();
-            // activated = true;
             readyToNextLevel();
         }
         return;
@@ -35,6 +32,8 @@ public class GameCompleted : MonoBehaviour
 
     private void readyToNextLevel()
     {
+        //Reference to script ChangeScene
+        nextLevelButton.gameObject.GetComponent <ChangeScene> ().nextSceneName=winLevel; //nos lleva a donde dice la variable
         nextLevelButton.gameObject.SetActive(true);
     }
 

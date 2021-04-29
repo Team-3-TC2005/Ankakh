@@ -34,12 +34,12 @@ public class WireConnection : MonoBehaviour
       
     }
 
+    
     void Done()
     {
         // Turn on light
         lightOn.SetActive(true);
         gameCompleted.GetComponent<GameCompleted>().TriggerDialogueBox();
-        
     }
 
     private void OnMouseUp() 

@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     private Queue<string> sentences;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake() 
     {
         sentences = new Queue<string>();
     }
@@ -31,11 +31,12 @@ public class DialogManager : MonoBehaviour
         }
 
 
-        Name.text = dialogue.name;
+        Name.text = GameSettings.Name;
 
-
+        
         // Clears sentences that where in our object form a previous conversation (Basicly making sure our object is clear before we load a new dialogue)
-        sentences.Clear();
+        sentences.Clear();        
+
 
         // Loop through the sentences in our dialogue and adding them to our queue (Getting them ready to be shown on screen)
         foreach (string sentence in dialogue.sentences)

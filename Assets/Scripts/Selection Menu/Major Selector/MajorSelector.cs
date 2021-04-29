@@ -6,7 +6,7 @@ using TMPro;
 
 public class MajorSelector : MonoBehaviour
 {
-    private static TextMeshProUGUI text;
+    private static Text text;
 
     public Button left;
     public Button rigth;
@@ -18,7 +18,7 @@ public class MajorSelector : MonoBehaviour
 
     void Start() 
     {
-        text = GameObject.Find("Major").GetComponent<TextMeshProUGUI>();
+        text = GameObject.Find("Major").GetComponent<Text>();
         text.text = options[index];
     }
 

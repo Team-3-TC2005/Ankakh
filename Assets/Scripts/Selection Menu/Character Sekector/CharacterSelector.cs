@@ -19,8 +19,9 @@ public class CharacterSelector : MonoBehaviour
     void Start() 
     {
         // Locate image component in which character sprites are going to be located.
-        image = GameObject.Find("Image").GetComponent<Image>();
+        image = GameObject.Find("Character").GetComponent<Image>();
         image.sprite = images[index];
+        print(images);
     }
 
     public void MoveLeft()
